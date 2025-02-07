@@ -15,7 +15,6 @@ typedef struct _PublicKey_BLOB {
 
 DWORD ciphertextLength = 0;
 
-
 BYTE e[3] = { 0x01, 0x00, 0x01 };
 BYTE n[512] = { 0xaa, 0xd6, 0x28, 0xf7, 0xb1, 0xe8, 0xeb, 0x1e, 0x16, 0x97, 0xc1, 0x7d, 0xa9,
 	0xbc, 0x7d, 0x45, 0x5a, 0x9f, 0x64, 0x67, 0x76, 0x65, 0x9d, 0x1a, 0xc1, 0xd1,
@@ -99,14 +98,6 @@ void FreePublicKeyBLOB(PublicKey_BLOB** BLOB)
 	return;
 }
 
-/************************************************************************************
-* rsa_4096_enc : Encrypts the data using RSA-4096
-*
-* input:
-* ALG_HANDLE - handle for the RSA algorithm
-* plain_e - plaintext
-* cipher - ciphertext
-* *********************************************************************************/
 void rsa_4096_enc(BCRYPT_ALG_HANDLE ALG_HANDLE, unsigned char* plain_e, unsigned char* cipher)
 {
 	BYTE plain[32];
@@ -196,13 +187,6 @@ void rsa_4096_enc(BCRYPT_ALG_HANDLE ALG_HANDLE, unsigned char* plain_e, unsigned
 	FreePublicKeyBLOB(&RSA_PUBLICKEY);
 }
 
-/************************************************************************************
-* r_enc : Encrypts the data using RSA-4096 (used for AES key encryption)
-*
-* input:
-* key - plaintext
-* key_out - ciphertext
-* *********************************************************************************/
 void r_enc(unsigned char* key, unsigned char* key_out)
 {
 	BCRYPT_ALG_HANDLE RSA_ALG = NULL;
