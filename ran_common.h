@@ -13,3 +13,7 @@
 
 #define SUCCESS 1
 #define FAIL 0
+
+#define _CRT_SECURE_NO_WARNINGS 
+
+#pragma warning(disable:4996)
