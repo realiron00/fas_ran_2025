@@ -36,9 +36,11 @@ void make_encfile(const char* filename, int number, unsigned char* key1, unsigne
 
 	fwrite(iv, sizeof(char), 16, fp);
 
-	fprintf(fp, "%d", enc_filesize);
-
+	fprintf(fp, "##");
 	fprintf(fp, "%d", filesize);
+
+	fprintf(fp, "##");
+	fprintf(fp, "%d", enc_filesize);
 	
 	fclose(fp);
 }
